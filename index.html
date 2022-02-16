@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta>
+    <title>Slider</title>
+    <script src="script.js"></script>
+    <style type="text/css">
+        html{
+            height: 100vh;
+            margin: 0;
+        }
+        body{
+            height: 100%;
+            background: linear-gradient(rgb(188, 207, 190), rgb(176, 123, 85));
+            margin: 0;
+        }
+        img{
+            max-width: 100%;
+            max-height: 90%;
+            position: relative;
+            top: 50%;           /* center horizontaly and verticaly*/
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #MainSlider{
+            margin-top: 10px;
+            height: 60vh;
+            width: 100%;
+            /* background-color: aqua; */
+            display: inline-flex;
+        }
+        #SliderLeft{
+            /* background-color: aquamarine; */
+            height: 60vh;
+            width: 15%;
+        }
+        #SliderContainer{
+            height: 100%;
+            width: 70%;
+            /* background-color: rgb(68, 131, 110); */
+        }
+        #SliderContainerButtons{
+            display: inline-block;
+            display: flex;              /*center horizontaly */
+            justify-content: center;
+        }
+        .YourChoiceButton{
+            background-color: #00000000;
+            border-color: #00000000;
+            transition-duration: 0.5s;
+        }
+        .YourChoiceButton:hover{
+            transform: translateX(2px)!important;
+            transform: translateY(-2px)!important;
+            text-decoration:line-through!important;
+        }
+        #SliderRight{
+            width: 15%;
+            /* background-color: aquamarine; */
+        }
+        
+    </style>
+</head>
+
+<body onload="AutoSlider();">
+    <div id="MainSlider">
+        <div id="SliderLeft">
+
+        </div>
+        <div id="SliderContainer">
+            <div id="SliderContainerButtons">
+                <button class="YourChoiceButton" onclick="slider(1)">1</button>
+                <button class="YourChoiceButton" onclick="slider(2)">2</button>
+                <button class="YourChoiceButton" onclick="slider(3)">3</button>
+                <button class="YourChoiceButton" onclick="slider(4)">4</button>
+                <button class="YourChoiceButton" onclick="slider(5)">5</button>
+                <button class="YourChoiceButton" onclick="slider(6)">6</button>
+                <button class="YourChoiceButton" onclick="slider(7)">7</button>
+                <button class="YourChoiceButton" onclick="slider(8)">8</button>
+                <button class="YourChoiceButton" onclick="slider(9)">9</button>
+                <button class="YourChoiceButton" onclick="slider(10)">10</button>
+                <button class="YourChoiceButton" onclick="slider(11)">11</button>
+                <button class="YourChoiceButton" onclick="slider(12)">12</button>
+
+            </div>
+            
+            <img id="image" src="photos/1.jpg">
+            
+        </div>
+        <div id="SliderRight">
+        </div>
+    </div>
+</body>
+
+</html>
