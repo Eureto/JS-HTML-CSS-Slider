@@ -27,18 +27,18 @@
             margin-top: 10px;
             height: 60vh;
             width: 100%;
-            /* background-color: aqua; */
+                /* background-color: aqua; */
             display: inline-flex;
         }
         #SliderLeft{
-            /* background-color: aquamarine; */
+                /* background-color: aquamarine; */
             height: 60vh;
             width: 15%;
         }
         #SliderContainer{
             height: 100%;
             width: 70%;
-            /* background-color: rgb(68, 131, 110); */
+                /* background-color: rgb(68, 131, 110); */
         }
         #SliderContainerButtons{
             display: inline-block;
@@ -49,6 +49,7 @@
             background-color: #00000000;
             border-color: #00000000;
             transition-duration: 0.5s;
+            cursor: pointer;
         }
         .YourChoiceButton:hover{
             transform: translateX(2px)!important;
@@ -57,7 +58,19 @@
         }
         #SliderRight{
             width: 15%;
-            /* background-color: aquamarine; */
+                /* background-color: aquamarine; */
+        }
+        .SlideRightLeft
+        {
+            background-color: #00000000;
+            border-color: #00000000;
+            transition-duration: 0.5s;
+            font-size: larger;
+            position: relative;
+            top: 50%;           /* center horizontaly and verticaly*/
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer; 
         }
         
     </style>
@@ -66,7 +79,7 @@
 <body onload="AutoSlider();">
     <div id="MainSlider">
         <div id="SliderLeft">
-
+            <button class="SlideRightLeft" onclick="SlideLeft()" > < </button>
         </div>
         <div id="SliderContainer">
             <div id="SliderContainerButtons">
@@ -89,6 +102,7 @@
             
         </div>
         <div id="SliderRight">
+            <button class="SlideRightLeft" onclick="SlideRight()"> > </button>
         </div>
     </div>
 </body>

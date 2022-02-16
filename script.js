@@ -2,8 +2,8 @@ let PreviousSlideNumber;
 let PhotoNumber = 2;
 let start = false;
 
-function slider(Choice) { //Choice - numer zdjecia ktore chce wyswietlic uzytkownik
-    clearTimeout(AutoSTimeout); //usuwa timeout z funkcji autoslide
+function slider(Choice) { //zminia slajd na wybrany przez uzytkownika 
+    clearTimeout(AutoSTimeout); 
     PhotoNumber = Choice;
     AutoSlider();
 }
@@ -22,6 +22,27 @@ function AutoSlider() {
     }
 }
 
+function SlideRight()
+{
+    slider(PhotoNumber);
+}
+
+function SlideLeft()
+{
+    if(PhotoNumber === 2)
+    {
+        slider(12);
+    }
+    else if(PhotoNumber === 1)
+    {
+        slider(11);
+    }
+    else{
+        PhotoNumber -= 2;
+        slider(PhotoNumber);
+    }
+}
+
 function ChangePhoto(PhotoNum) {
     let path = `photos/${PhotoNum}.jpg`;
     document.getElementById("image").src = path;
@@ -33,30 +54,35 @@ function ChangePhoto(PhotoNum) {
         rgb = getAverageColor(img);
         document.body.style.background = "linear-gradient( rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + "), rgb(" + rgb.r1 + "," + rgb.g1 + "," + rgb.b1 + "))";
 
-
-
         //Zmiana koloru tekstu nad zdjęciem 
         let TextColor = document.getElementsByClassName("YourChoiceButton");
+        let SlideRightLeftColor = document.getElementsByClassName("SlideRightLeft");
         if (rgb.r < 70 || rgb.g < 70 || rgb.b < 70) {
-            for (i = 0; i < TextColor.length; i++) {
+            for (let i = 0; i < TextColor.length; i++) {
                 TextColor[i].style.color = "white";
             }
+            for (let i = 0; i < SlideRightLeftColor.length; i++) {
+                SlideRightLeftColor[i].style.color = "white";
+            } 
         } else {
-            for (i = 0; i < TextColor.length; i++) {
+            for (let i = 0; i < TextColor.length; i++) {
                 TextColor[i].style.color = "black";
             }
+            for (let i = 0; i < SlideRightLeftColor.length; i++) {
+                SlideRightLeftColor[i].style.color = "black";
+            } 
         }
     };
     //zaznacza ktory slajd jest obecnie wyswietlany
     let CurText = document.getElementsByClassName("YourChoiceButton")[PhotoNum - 1];
     CurText.style.textDecoration = "line-through"
-    CurText.style.transform = "translateY(-2px)";
+    CurText.style.transform = "translateY(-3px)";
 
     //jesli nastapi wiecej niz jedna zmiana slajdu to cofa zaznaczenie obecnego slajdu
     if (PreviousSlideNumber > 0) {
         let PrevText = document.getElementsByClassName("YourChoiceButton")[PreviousSlideNumber - 1];
         PrevText.style.textDecoration = "none";
-        PrevText.style.transform = "translateY(2px)";
+        PrevText.style.transform = "translateY(0px)";
     }
     PreviousSlideNumber = PhotoNum;
     IncreseOpacity();
