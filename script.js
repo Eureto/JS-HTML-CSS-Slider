@@ -42,7 +42,7 @@ function SlideLeft()
         slider(PhotoNumber);
     }
 }
-//jabadabadu
+
 function ChangePhoto(PhotoNum) {
     let path = `photos/${PhotoNum}.jpg`;
     document.getElementById("image").src = path;
